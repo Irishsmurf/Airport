@@ -1,0 +1,7 @@
+clear
+echo Compiling...
+rm *.o
+
+g++ -c *.cpp
+g++ -o system *.o
+echo Lock and Load!
