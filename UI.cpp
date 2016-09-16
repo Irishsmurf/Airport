@@ -5,8 +5,7 @@ using namespace std;
 //Adds a passenger to our database if not there already
 //Then looks up flight in flight table
 //Adds passenger to flight
-void UI::addPassenger()
-{
+void UI::addPassenger(){
 	cout << "\033[2J\033[1;1H";
 	int command;
 	//Ask information about passenger
@@ -16,8 +15,7 @@ void UI::addPassenger()
 	char passengerType;
 	cout << "What type of Passenger are you adding?\n1)Business\n2)Economy\n\n";
 	cin >> command;
-	switch(command)
-	{
+	switch(command){
 		case 1:
 			passengerType = 'b';
 			break;
@@ -25,12 +23,10 @@ void UI::addPassenger()
 			passengerType = 'e';
 			break;
 	}
-	if(passengerType == 'b')
-	{
+	if(passengerType == 'b'){
 		cout << "What seat would you like: \n1)Window\n2)Aisle\n\n";
 		cin >> command;
-		switch(command)
-		{
+		switch(command){
 			case 1:
 				seatType = 'w';
 				break;
@@ -42,15 +38,12 @@ void UI::addPassenger()
 		}
 		cout << "How many bags are being checked in:\n1)Three or less\n2)Four or more\n";
 		cin >> command;
-		switch(command)
-		{
-			case 1:
-			{
+		switch(command){
+			case 1:{
 				cout << "No further charges for baggage.\n";
 				break;
 			}
-			case 2:
-			{
+			case 2:{
 				cout << "Please enter the Exact number of bags: ";
 				cin >> command;
 				cout << "The passenger must pay a further €" << (command - 3)*25 << " in baggage charges.\n"; 
@@ -58,12 +51,10 @@ void UI::addPassenger()
 			}
 		}
 	}
-	else
-	{
+	else{
 		cout << "What seat would you like: \n1)Window\n2)Aisle\n3)Middle\n\n";
 		cin >> command;
-		switch(command)
-		{
+		switch(command){
 			case 1:
 				seatType = 'w';
 				break;
@@ -76,8 +67,7 @@ void UI::addPassenger()
 		}
 		cout << "How many bags are being checked in:\n1)One \n2)Two or more\n";
 		cin >> command;
-		switch(command)
-		{
+		switch(command){
 			case 1:
 			{
 				cout << "No further charges for baggage.\n";
@@ -99,8 +89,7 @@ void UI::addPassenger()
 	cout << "Enter flight code ( or enter \"list\" to see all flights ): ";
 	string fCode;
 	cin >> fCode;
-	if(fCode == "list")
-	{
+	if(fCode == "list"){
 		printAllFlights();
 		cout << "Enter flight code: ";
 		cin >> fCode;
@@ -108,8 +97,7 @@ void UI::addPassenger()
 	Flight f(fCode);
 	//Lookup flight in flight table
 	set<Flight>::iterator pFlight = flightTable.find(f);
-	if(pFlight == flightTable.end())
-	{
+	if(pFlight == flightTable.end()){
 		cout << "Flight not Found.\n "<< endl;
 		return;	
 	}
@@ -122,12 +110,10 @@ void UI::addPassenger()
 	flightTable.erase(pFlight);	//takes out of the set so we add the updated version
 	flightTable.insert(f);
 	cout << "Successfully added Passenger to ";
-	if(passengerType == 'b')
-	{
+	if(passengerType == 'b'){
 		cout << "a business class seat on flight "<<fCode<<". \n"<<endl;;
 	}
-	else
-	{
+	else{
 		cout <<"an economy class seat on flight "<<fCode<<".\n"<<endl;
 	}
 }
@@ -145,8 +131,7 @@ void UI::checkBooking()
 	//Search if passenger is in passenger table
 	//if he isn't print error message
 	set<Passenger>::iterator pPassenger = passengerTable.find(p);
-	if(pPassenger == passengerTable.end())
-	{
+	if(pPassenger == passengerTable.end()){
 		cout << "That person is not in our database" << endl << endl;
 		return;
 	}
@@ -156,8 +141,7 @@ void UI::checkBooking()
 	cin >> fCode;
 	Flight f(fCode);
 	set<Flight>::iterator pFlight = flightTable.find(f);
-	if(pFlight == flightTable.end())
-	{
+	if(pFlight == flightTable.end()){
 		cout << "That flight is not in out Database" << endl << endl;
 		return;
 	}
@@ -169,8 +153,7 @@ void UI::checkBooking()
 	//Print yes or no
 }
 
-void UI::displayPassengerDetails()
-{
+void UI::displayPassengerDetails(){
 	cout << "\033[2J\033[1;1H";
 	//Ask for passenger details
 	Passenger p;
@@ -179,8 +162,7 @@ void UI::displayPassengerDetails()
 	//Search if passenger is in passenger table
 	//if he isn't print error message
 	set<Passenger>::iterator pPassenger = passengerTable.find(p);
-	if(pPassenger == passengerTable.end())
-	{
+	if(pPassenger == passengerTable.end()){
 		cout << "That person is not in our database" << endl << endl;
 		return;
 	}
@@ -193,8 +175,7 @@ void UI::displayPassengerDetails()
 	
 }
 
-void UI::cancelBooking()
-{
+void UI::cancelBooking(){
 	cout << "\033[2J\033[1;1H";
 	
 	//Ask information about passenger
@@ -205,8 +186,7 @@ void UI::cancelBooking()
 	//Search if passenger is in passenger table
 	//if he isn't print error message
 	set<Passenger>::iterator pPassenger = passengerTable.find(p);
-	if(pPassenger == passengerTable.end())
-	{
+	if(pPassenger == passengerTable.end()){
 		cout << "That person is not in our database" << endl << endl;
 		return;
 	}
@@ -219,8 +199,7 @@ void UI::cancelBooking()
 	cout << "\n----------------------------------\n";
 }
 
-void UI::addFlight()
-{
+void UI::addFlight(){
 	cout << "\033[2J\033[1;1H";
 	//Ask for Flight details
 	//Create flight using those details
@@ -235,15 +214,13 @@ void UI::addFlight()
 	cout << "\n----------------------------------\n";
 }
 
-void UI::cancelFlight()
-{
+void UI::cancelFlight(){
 	string fCode;
 	cout << "\033[2J\033[1;1H";
 	Flight f;
 	f.getCode();
 	set<Flight>::iterator pFlight = flightTable.find(f);
-	if(pFlight == flightTable.end())
-	{
+	if(pFlight == flightTable.end()){
 		cout << "That flight is not in out Database" << endl << endl;
 		return;
 	}
@@ -262,8 +239,7 @@ void UI::cancelFlight()
 	//Cancel all bookings with that flight
 }
 
-void UI::lookupFlight()
-{
+void UI::lookupFlight(){
 	cout << "\033[2J\033[1;1H";
 	string fCode;
 	cout << "Flight Data Lookup.\n\n";
@@ -271,8 +247,7 @@ void UI::lookupFlight()
 	Flight f;
 	f.getCode();
 	set<Flight>::iterator pFlight = flightTable.find(f);
-	if(pFlight == flightTable.end())
-	{
+	if(pFlight == flightTable.end()){
 		cout << "That Flight does not exist within our Database\n\n";
 		return;
 	}
@@ -284,8 +259,7 @@ void UI::lookupFlight()
 	//Otherwise print the details of the flight
 }
 
-void UI::printAllPassengers()
-{
+void UI::printAllPassengers(){
 	cout << "There are " <<passengerTable.size() << " passengers:" << endl;
 	set<Passenger>::iterator i;
 	for(i = passengerTable.begin(); i != passengerTable.end(); ++i)
@@ -293,19 +267,16 @@ void UI::printAllPassengers()
 	cout << "\n----------------------------------\n";
 }
 
-void UI::printAllFlights()
-{
+void UI::printAllFlights(){
 	Flight f;
 	cout<< "There are "<<flightTable.size() << " flights:"<< endl;
-	if(flightTable.size() == 0)
-	{
+	if(flightTable.size() == 0){
 		cout << "\n";
 		return;
 	}
 
 	set<Flight>::iterator i;
-	for(i = flightTable.begin(); i != flightTable.end(); ++i)
-	{
+	for(i = flightTable.begin(); i != flightTable.end(); ++i){
 		f = *i;
 		f.print();
 	}
