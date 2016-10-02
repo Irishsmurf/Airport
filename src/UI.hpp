@@ -11,23 +11,22 @@
 
 using std::set;
 
-class UI
-{	
-	public:
-	void addPassenger();
-	void checkBooking();
-	void displayPassengerDetails();
-	void cancelBooking();
-	void addFlight();
-	void cancelFlight();
-	void lookupFlight();
-	void printAllPassengers();
-	void printAllFlights();
-	
-	//private:
-	//Set of Flights
-	set <Flight> flightTable;
-	//Ser of Passengers
-	set <Passenger> passengerTable;
+class UI {	
+  public:
+  void addPassenger();
+  void checkBooking();
+  void displayPassengerDetails();
+  void cancelBooking();
+  void addFlight();
+  void cancelFlight();
+  void lookupFlight();
+  void printAllPassengers();
+  void printAllFlights();
+
+  //private:
+  //Set of Flights
+  set <Flight> flightTable;
+  //Ser of Passengers
+  set <Passenger> passengerTable;
 };
 #endif
