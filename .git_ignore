@@ -1,0 +1,5 @@
+### BAZEL ###
+bazel-*
+
+### Object files ###
+*.o
