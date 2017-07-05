@@ -1,7 +1,7 @@
 cc_binary(
   name = "main",
   srcs = ["RunSystem.cpp"],
-  deps = [":libs"]
+  deps = ["//src/lib:libs"]
 )
 
 cc_library(
