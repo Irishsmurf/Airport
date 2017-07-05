@@ -1,4 +1,4 @@
-### Airport Check-In System###
+### Airport Check-In System
 
 This was implemented by myself and @OwenCorrigan back in 2nd year of our
 Software engineering degree.
