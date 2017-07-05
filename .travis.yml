@@ -17,3 +17,4 @@ before_install:
 
 script:
   - bazel build //src:main
+  - bazel test //src/tests:all
