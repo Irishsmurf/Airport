@@ -13,7 +13,7 @@ int main()
     cout << "Enter command\n";
     cout << "1) Add Passenger\n2) Check if passenger is booked\n3) Display passenger booking details\n";
     cout << "4) Cancel Reservation\n5) Add flight\n6) Cancel Flight\n";
-    cout << "7) Look up flight data\n8) Display Flights\n9) Display Passengers\n0)Exit\n";
+    cout << "7) Look up flight data\n8) Display Flights\n9) Display Passengers\n0) Exit\n";
     cin >> command;
     switch(command) {
       case 1:
